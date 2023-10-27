@@ -11,6 +11,10 @@ body {
     font-family: 'Merriweather', serif;
 }
 
+.font1 {
+
+}
+
 h1,
 h2,
 h3,
@@ -53,4 +57,45 @@ h6 {
     left: 0;
     z-index: -1;
     transform: rotate(-2deg) scale(1.1);
+}
+
+.border-dashed {
+    border-style: dotted;
+}
+
+.pallete {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.pallete .color {
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+    border: 2px solid #000;
+}
+
+.pallete .color > * {
+    min-height: 50px;
+    background-color: red;
+}
+
+.pallete .color .color1 {
+    min-height: 80px;
+    background-color: attr(data-color);
+}
+
+.pallete .color .color2 {
+    min-height: 70px;
+}
+
+.pallete .color .color3 {
+    min-height: 60px;
+}
+
+.pallete .color .color4 {
+    min-height: 50px;
 }
