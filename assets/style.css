@@ -116,6 +116,23 @@ h6 {
     display: inline-block;
 }
 
+/* color-group */
+
+.color-group {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.color-group .color {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+}
+
 /* pallete */
 
 .pallete {
@@ -205,4 +222,57 @@ h6 {
 .pallete .color .color-set>*:hover {
     transform: scale(1.15);
     transition: all ease .3s;
+}
+
+/* divider */
+
+.divider {
+    margin: 20px 0px;
+    display: block;
+    height: 5px;
+    background-color: #dfdbdb;
+    border-radius: 5px;
+}
+
+/* color cards */
+
+.card.color {
+    overflow: hidden;
+}
+
+.card.color .data {
+    height: 150px;
+    cursor: pointer;
+    position: relative;
+}
+
+.card.color .data:hover::after {
+    opacity: 1;
+}
+
+.card.color .data::after {
+    opacity: 0;
+    color: #fff;
+    display: inline-block;
+    content: attr(data-color);
+    position: absolute;
+    font-size: 12px;
+    bottom: 0px;
+    left: 0px;
+    transition: opacity linear .3s;
+    padding: 2px 5px;
+    border-radius: 0px 5px 0px 0px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.card.color .btn {
+    color: #000;
+}
+
+.card.color p {
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
