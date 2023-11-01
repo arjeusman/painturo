@@ -50,6 +50,7 @@ h6 {
 }
 
 /* hero */
+
 .hero h1 {
     font-size: 35px;
 }
@@ -114,6 +115,26 @@ h6 {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.1);
     display: inline-block;
+}
+
+.flash {
+    color: #fff;
+    position: relative;
+    padding: 0px 15px;
+    background-image: url(../assets/flash/flash1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.flash2 {
+    color: #04364a;
+    background-image: url(../assets/flash/flash2.png);
+}
+
+.flash3 {
+    color: #222444;
+    background-image: url(../assets/flash/flash3.png);
 }
 
 /* color-group */
@@ -273,14 +294,77 @@ h6 {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-.card.color .btn {
-    color: #000;
+.card.color .card-body {
+    text-align: center;
 }
 
 .card.color p {
+    text-align: center;
     display: -webkit-box;
     max-width: 100%;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+.card.color .btn {
+    color: #0c0b0b;
+}
+
+/* gradients */
+
+.card.card.gradient {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card.gradient h1 {
+    font-family: 'Roboto', sans-serif;
+}
+
+.card.gradient .data {
+    height: 100px;
+    cursor: pointer;
+    position: relative;
+}
+
+.card.gradient .data:hover::before,
+.card.gradient .data:hover::after {
+    opacity: 1;
+}
+
+.card.gradient .data::before,
+.card.gradient .data::after {
+    opacity: 0;
+    color: #fff;
+    display: inline-block;
+    position: absolute;
+    font-size: 12px;
+    transition: opacity linear .3s;
+    padding: 2px 5px;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.card.gradient .data::before {
+    bottom: 0px;
+    left: 0px;
+    content: attr(data-before);
+    border-radius: 0px 5px 0px 0px;
+}
+
+.card.gradient .data::after {
+    bottom: 0px;
+    right: 0px;
+    content: attr(data-after);
+    border-radius: 5px 0px 0px 0px;
+}
+
+.card.gradient .btn {
+    transition: transform linear .3s;
+}
+
+.card.gradient .btn:hover {
+    transform: scale(1.1);
+    transition: all ease .3s;
 }
