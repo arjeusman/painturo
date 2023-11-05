@@ -75,22 +75,155 @@
         </div>
     </nav>
 
-    <div class="class hero-blog p-5 text-center rounded-3 mt-2 mb-2 bg-body-tertiary">
-        <h1 class="text-body-emphasis">Color <span class="splash">Picker<img src="assets/splash.png" alt="..." /></span>
+    <div class="hero-blog p-5 text-center rounded-3 mt-2 mb-2 bg-body-tertiary">
+        <h1 class="text-body-emphasis">Color Picker & <span class="splash">Mixer<img src="assets/splash.png"
+                    alt="..." /></span>
         </h1>
         <p class="col-lg-8 mx-auto fs-5 text-muted">Explore a world of endless color possibilities with our
             user-friendly color palette picker. Find the perfect hues for your projects effortlessly and create stunning
             designs that stand out. Try our color palettes picker now to bring your creativity to life!</p>
     </div>
 
-    <div class="container-fluid">
-        
+    <div class="row bg-body-tertiary rounded-3 p-sm-5 color-picker">
+        <div class="col-sm-12 col-md-7 col-lg-7 text-start">
+            <div class="highlight">
+                <h1 class="fs-2 m-0 text-uppercase">Color Mixer</h1>
+            </div>
+            <div class="d-flex align-items-center justify-content-between flex-row gap-1 mt-2 mb-2 rounded-3 range">
+                <label for="red">R</label>
+                <input oninput="updateColor()" class="flex-fill" type="range" min="0" max="255" value="255" id="red">
+                <span id="redLabel">255</span>
+            </div>
+            <div class="d-flex align-items-center justify-content-between flex-row gap-1 mt-2 mb-2 rounded-3 range">
+                <label for="green">G</label>
+                <input oninput="updateColor()" class="flex-fill" type="range" min="0" max="255" value="255" id="green">
+                <span id="greenLabel">255</span>
+            </div>
+            <div class="d-flex align-items-center justify-content-between flex-row gap-1 mt-2 mb-2 rounded-3 range">
+                <label for="blue">B</label>
+                <input oninput="updateColor()" class="flex-fill" type="range" min="0" max="255" value="255" id="blue">
+                <span id="blueLabel">255</span>
+            </div>
+            <div class="d-flex align-items-center justify-content-between flex-row gap-1 mt-2 mb-2 rounded-3 range">
+                <label for="alpha">A</label>
+                <input oninput="updateColor()" class="flex-fill" type="range" min="0.0" max="1.0" step="0.10"
+                    value="1.0" id="alpha">
+                <span id="alphaLabel">1.0</span>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-4 p-2">
+                    <div
+                        class="d-flex align-items-center justify-content-between bg-body-tertiary border rounded-2 p-2">
+                        <div>
+                            <small for="rgba" class="d-block text-secondary text-uppercase bg"
+                                style="font-size: 10px;">rgba
+                                code</small>
+                            <span id="rgbaCode" class="text-dark">rgba(255, 255, 255, 1.0)</span>
+                        </div>
+                        <div>
+                            <i class="bi bi-copy" title="Click to copy rgba code."
+                                onclick="copy(document.getElementById('rgbaCode').innerHTML)"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 p-2">
+                    <div
+                        class="d-flex align-items-center justify-content-between bg-body-tertiary border rounded-2 p-2">
+                        <div>
+                            <small for="rgb" class="d-block text-muted text-uppercase bg" style="font-size: 10px;">rgb
+                                code</small>
+                            <span id="rgbCode">rgb(255, 255, 255)</span>
+                        </div>
+                        <div>
+                            <i class="bi bi-copy" title="Click to copy rgb code."
+                                onclick="copy(document.getElementById('rgbCode').innerHTML)"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4 p-2">
+                    <div
+                        class="d-flex align-items-center justify-content-between bg-body-tertiary border rounded-2 p-2">
+                        <div>
+                            <small for="hexCode" class="d-block text-muted text-uppercase bg"
+                                style="font-size: 10px;">hex
+                                code</small>
+                            <span id="hexCode" class="text-uppercase">#ffffff</span>
+                        </div>
+                        <div>
+                            <i class="bi bi-copy" title="Click to copy hex code."
+                                onclick="copy(document.getElementById('hexCode').innerHTML)"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-5 col-lg-5 rounded-3" id="output">
+            <div class="color" id="color" onclick="copy(this.style.backgroundColor)" title="Click to copy color code.">
+            </div>
+            <div class="pixels"></div>
+            <div class="d-flex align-items-center justify-content-center gap-2 py-2 mode">
+                <button class="btn btn-dark bg-gradient rounded-2 border-0"
+                    onclick="document.getElementById('output').style.backgroundColor = '#000'">Dark</button>
+                <button class="btn btn-light bg-gradient rounded-2 border-0"
+                    onclick="document.getElementById('output').style.backgroundColor = '#fff'">Light</button>
+            </div>
+            <div class="picker">
+                <input title="Click to pick a color." id="picker" onchange="updateFromPicker(this.value)" oninput="updateFromPicker(this.value)" value="#ffffff" type="color">
+            </div>
+        </div>
     </div>
 
-    <div class="d-flex align-items-center justify-content-center py-3">
-        <a href="#" class="btn bg-warning-subtle bg-gradient rounded-2 px-5 py-3 border-0">Load More Palettes <i
-                class="bi bi-arrow-right"></i></a>
-    </div>
+    <script>
+        function updateColor() {
+            let red = parseInt(document.getElementById('red').value)
+            let green = parseInt(document.getElementById('green').value)
+            let blue = parseInt(document.getElementById('blue').value)
+            let alpha = parseFloat(document.getElementById('alpha').value)
+            let output = document.getElementById('color')
+            let rgb = 'rgb(' + red + ', ' + green + ', ' + blue + ')'
+            let rgba = 'rgba(' + red + ', ' + green + ', ' + blue + ', ' + alpha.toFixed(1) + ')'
+            output.style.backgroundColor = rgba
+            document.getElementById('redLabel').innerHTML = red
+            document.getElementById('greenLabel').innerHTML = green
+            document.getElementById('blueLabel').innerHTML = blue
+            document.getElementById('alphaLabel').innerHTML = alpha.toFixed(1);
+            document.getElementById('rgbCode').innerHTML = rgb
+            document.getElementById('rgbaCode').innerHTML = rgba
+            document.getElementById('hexCode').innerHTML = RGBtoHex(red, green, blue)
+            //update picker color
+            document.getElementById('picker').value = RGBtoHex(red, green, blue)
+        }
+        const colorToHex = (color) => {
+            const hexadecimal = color.toString(16);
+            return hexadecimal.length == 1 ? "0" + hexadecimal : hexadecimal;
+        }
+
+        const RGBtoHex = (red, green, blue) => {
+            return "#" + colorToHex(red) + colorToHex(green) + colorToHex(blue);
+        }
+
+        // color picker
+        function hexTorgb(hex) {
+            return ['0x' + hex[1] + hex[2] | 0, '0x' + hex[3] + hex[4] | 0, '0x' + hex[5] + hex[6] | 0];
+        }
+        function updateFromPicker(hex){
+            let color = hexTorgb(hex)
+            let rgb = 'rgb(' + color[0] + ', ' + color[1] + ', ' + color[2] + ')'
+            let rgba = 'rgb(' + color[0] + ', ' + color[1] + ', ' + color[2] + ', 1.0)'
+            document.getElementById('color').style.backgroundColor = rgba
+            //update rgba range
+            document.getElementById('red').value = color[0]
+            document.getElementById('green').value = color[1]
+            document.getElementById('blue').value = color[2]
+            document.getElementById('alpha').value = 1.0
+
+            document.getElementById('rgbaCode').innerHTML = rgba
+            document.getElementById('rgbCode').innerHTML = rgb
+            document.getElementById('hexCode').innerHTML = hex
+            // console.log(color)
+        }
+
+    </script>
 
     <footer class="footer p-3 mt-3">
         <div class="row">
