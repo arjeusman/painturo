@@ -80,8 +80,9 @@
                     alt="..." /></span>
         </h1>
         <p class="col-lg-8 mx-auto fs-5 text-muted">Explore a world of endless color possibilities with our
-            user-friendly color palette picker. Find the perfect hues for your projects effortlessly and create stunning
-            designs that stand out. Try our color palettes picker now to bring your creativity to life!</p>
+            user-friendly color picker and mixer. Find the perfect hues for your projects effortlessly and create
+            stunning
+            designs that stand out. Try our color picker and mixer now to bring your creativity to life!</p>
     </div>
 
     <div class="row bg-body-tertiary rounded-3 p-sm-5 color-picker">
@@ -168,7 +169,8 @@
                     onclick="document.getElementById('output').style.backgroundColor = '#fff'">Light</button>
             </div>
             <div class="picker">
-                <input title="Click to pick a color." id="picker" onchange="updateFromPicker(this.value)" oninput="updateFromPicker(this.value)" value="#ffffff" type="color">
+                <input title="Click to pick a color." id="picker" onchange="updateFromPicker(this.value)"
+                    oninput="updateFromPicker(this.value)" value="#ffffff" type="color">
             </div>
         </div>
     </div>
@@ -206,7 +208,7 @@
         function hexTorgb(hex) {
             return ['0x' + hex[1] + hex[2] | 0, '0x' + hex[3] + hex[4] | 0, '0x' + hex[5] + hex[6] | 0];
         }
-        function updateFromPicker(hex){
+        function updateFromPicker(hex) {
             let color = hexTorgb(hex)
             let rgb = 'rgb(' + color[0] + ', ' + color[1] + ', ' + color[2] + ')'
             let rgba = 'rgb(' + color[0] + ', ' + color[1] + ', ' + color[2] + ', 1.0)'
