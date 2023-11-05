@@ -24,13 +24,10 @@ body::-webkit-scrollbar {
 
 a {
     text-decoration: none;
-    transition: text-decoration linear .3s;
 }
 
-a:hover {
-    color: #0c0b0b;
-    text-decoration: underline;
-    transition: all ease .3s;
+img {
+    max-width: 100%;
 }
 
 /* modify */
@@ -79,28 +76,28 @@ a:hover {
     box-shadow: none;
 }
 
-/* hero */
+/* heroes */
 
 .hero h1 {
     font-size: 35px;
 }
 
-.hero h1 .splash {
+.splash {
+    z-index: 0;
     font-size: 45px;
     color: #000;
     position: relative;
-    font-weight: light;
 }
 
-.hero h1 .splash img {
+.splash img {
     content: "";
-    width: 100%;
+    width: 150px;
     display: inline-block;
     position: absolute;
-    left: 0px;
+    left: 25px;
     bottom: 0px;
     z-index: -1;
-    transform: rotate(0deg) scale(1.1);
+    transform: rotate(0deg) scale(1.5);
 }
 
 .hero p {
@@ -147,22 +144,44 @@ a:hover {
     display: inline-block;
 }
 
-.flash {
-    color: #1b1b24;
+.hero-blog {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* headings */
+
+.heading {
+    padding: 10px 10px;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 5px;
     position: relative;
-    padding: 0px 15px;
-    background-image: url(../assets/flash/flash1.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
 }
 
-.flash2 {
-    background-image: url(../assets/flash/flash2.png);
+.heading::before,
+.heading::after {
+    position: absolute;
+    content: "";
+    height: 5px;
+    width: 80px;
+    display: inline-block;
+    border-radius: 4px;
 }
 
-.flash3 {
-    background-image: url(../assets/flash/flash3.png);
+.heading::before {
+    top: 0px;
+    left: 0px;
+    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+}
+
+.heading::after {
+    right: 0px;
+    bottom: 0px;
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 /* color-group */
@@ -203,7 +222,7 @@ a:hover {
 }
 
 .pallete .color:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     transition: all ease .3s;
 }
 
@@ -250,6 +269,22 @@ a:hover {
 .pallete .color .color4 {
     min-height: 35px;
 }
+/* medium */
+.pallete .color.color-md .color1 {
+    min-height: 70px;
+}
+
+.pallete .color.color-md .color2 {
+    min-height: 65px;
+}
+
+.pallete .color.color-md .color3 {
+    min-height: 60px;
+}
+
+.pallete .color.color-md .color4 {
+    min-height: 55px;
+}
 
 .pallete .color .color-set {
     display: flex;
@@ -257,7 +292,7 @@ a:hover {
     justify-content: center;
     gap: 5px;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: #fff;
 }
 
 .pallete .color .color-set>* {
@@ -271,6 +306,35 @@ a:hover {
 .pallete .color .color-set>*:hover {
     transform: scale(1.15);
     transition: all ease .3s;
+}
+
+.pallete .color .footer {
+    color: rgba(0, 0, 0, 0.8);
+    background-color: #fff;
+    padding: 8px 10px;
+    border-radius: 0;
+}
+
+.pallete .color .footer .social .bi {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    transition: color linear .3s;
+}
+
+.pallete .color .footer .bi-facebook:hover {
+    color: #1877f2;
+}
+.pallete .color .footer .bi-instagram:hover {
+    color: #fcaf45;
+}
+.pallete .color .footer .bi-twitter:hover {
+    color: #1da1f2;
+}
+
+.pallete .color .footer .react small {
+    font-size: 12px;
 }
 
 /* divider */
@@ -289,12 +353,6 @@ a:hover {
     overflow: hidden;
     cursor: pointer;
     transition: transform linear .3s;
-}
-
-.card.color:hover {
-    z-index: 1;
-    transform: scale(1.05);
-    transition: all ease .3s;
 }
 
 .card.color .data {
@@ -322,12 +380,7 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-.card.color .card-body {
-    text-align: center;
-}
-
 .card.color p {
-    text-align: center;
     display: -webkit-box;
     max-width: 100%;
     -webkit-line-clamp: 3;
@@ -335,8 +388,31 @@ a:hover {
     overflow: hidden;
 }
 
-.card.color .btn {
-    color: #0c0b0b;
+.card.color .button {
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 0px;
+}
+
+.card.color .button::after {
+    width: 0%;
+    content: "";
+    height: 2px;
+    display: inline-block;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: width linear .3s;
+}
+
+.card.color .button:hover::after {
+    width: 100%;
+    transition: all ease .3s;
 }
 
 /* gradients */
@@ -390,15 +466,70 @@ a:hover {
 
 /* blog */
 
+.blog .content .social {
+    color: #000;
+}
+
+.blog .content .social .bi-facebook:hover {
+    background-color: #1877f2;
+}
+.blog .content .social .bi-instagram:hover {
+    background-color: #fcaf45;
+}
+.blog .content .social .bi-twitter:hover {
+    background-color: #1da1f2;
+}
+
+.blog .content .social > i {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.01);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: background-color linear .3s;
+}
+
+.blog .content .social > *:hover {
+    color: #fff;
+    transition: all ease .3s;
+}
+
+.blog .content p {
+        text-align: justify;
+}
+
+.blog .content .date-author {
+    display: block;
+    padding: 15px 0px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.blog .content .button {
+    display: inline-block;
+    font-size: 15px;
+    height: 50px;
+    line-height: 50px;
+    border: none;
+    color: rgba(0, 0, 0, 0.5);
+}
+
 .blog-snippets {
     padding: 0px;
 }
 
 .blog-snippets li {
     list-style: none;
-    padding: 0px 0px;
+    padding: 10px 0px;
     margin: 0px;
+    display: flex;
+    gap: 3px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.blog-snippets li::before {
+    content: '📖';
 }
 
 .blog-snippets li:last-child {
@@ -406,9 +537,20 @@ a:hover {
 }
 
 .blog-snippets li a {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px 0px;
     line-height: normal;
+    display: block;
+}
+
+.blog-snippets li small {
+    display: block;
+    padding: 2px 0px;
+    margin: 0px;
+}
+
+.blog-snippets li a:hover {
+    text-decoration: underline;
 }
 
 .blog-snippets li small {
@@ -420,7 +562,7 @@ a:hover {
 /* footer */
 .footer {
     border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(10, 10, 10, 0.03);
 }
 
 .footer a {
@@ -429,4 +571,50 @@ a:hover {
 
 .footer a:hover {
     color: #1F1717;
+}
+
+.highlight h1 {
+    position: relative;
+    padding: 5px 0px;
+}
+
+.highlight h1:before {
+    content: "🌈";
+    display: inline-block;
+}
+
+.footer-nav {
+    margin: 10px 0px;
+    padding: 0px 20px;
+}
+
+.footer-nav li {
+    list-style-type: '🔥';
+    margin: 0px;
+    padding: 4px 0px;
+}
+
+.footer-nav li a {
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding: 0px 0px;
+}
+
+.footer-nav li a::after {
+    width: 0%;
+    content: "";
+    height: 2px;
+    display: inline-block;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: width linear .3s;
+}
+
+.footer-nav li a:hover::after {
+    width: 100%;
+    transition: all ease .3s;
 }

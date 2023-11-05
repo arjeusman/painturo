@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painturo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" href="assets/favicon.ico">
+    <script type="text/javascript" src="assets/painturo.js"></script>
+</head>
+
+<div class="modal modal-sm fade" tabindex="-1" id="success">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fs-6"><i class="bi bi-clipboard"></i> Copied to clipboard!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Great! The Color was copied to your clipboard.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body class="container">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-gradient rounded shadow-sm sticky-top">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"><img class="rounded-2" src="assets/brand.png" alt="Painturo"
+                    style="width: 40px; height: 40px;" /> Painturo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10"
+                aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-end" id="navbarsExample10">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"><i
+                                class="bi bi-tools"></i> Tools</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="color-palettes.html"><i class="bi bi-palette"></i> Color
+                                    Palettes</a></li>
+                            <li><a class="dropdown-item" href="color-picker.html"><i class="bi bi-hand-index-thumb"></i>
+                                    Color
+                                    Picker</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" href="color-trends.html"><i
+                                class="bi bi-graph-up-arrow"></i> Color Trends</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" href="color-ideas.html"><i
+                                class="bi bi-info-circle"></i> Color Ideas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-disabled="true" href="blog.html"><i
+                                class="bi bi-file-earmark-richtext"></i>
+                            Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="class hero-blog p-5 text-center rounded-3 mt-2 mb-2 bg-body-tertiary">
+        <img class="rounded-3" style="width: 100px;" src="assets/brand.png" alt="Painturo">
+        <h1 class="text-body-emphasis"><span class="splash">Painturo's<img src="assets/splash.png" alt="..."></span>
+            Blog</h1>
+        <p class="col-lg-8 mx-auto fs-5 text-muted">Explore our curated color palettes for endless inspiration. Discover
+            harmonious combinations, bold contrasts, and subtle nuances to elevate your design projects. Find the
+            perfect hues to make your vision come to life.</p>
+        <div class="d-inline-flex align-items-center gap-2">
+            <button class="btn btn-lg btn-primary" type="button">
+                <i class="bi bi-book"></i> Start reading
+            </button>
+            <button class="btn btn-lg btn-outline-danger" type="button">
+                <i class="bi bi-youtube"></i> Watch videos
+            </button>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row align-items-center blog bg-body-tertiary p-4 mb-2 rounded-3 shadow-sm">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <img class="rounded-2" src="assets/blogs/blog1.png" alt="">
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-8 content">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <span class="date-author"><i class="bi bi-calendar-date"></i> November 06, 2023 | <i
+                                class="bi bi-person-fill"></i> Painturo</span>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 d-none d-md-block">
+                        <div class="d-flex align-items-center justify-content-end gap-1 social">
+                            <span class="text-muted">Share this to your friends!</span>
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="fs-2">Choosing the Perfect Color Palette for Your Home</h1>
+                <p class="fs-5">Selecting the ideal color palette for your home is more than just a design decision;
+                    it's a
+                    reflection of your personality and the ambiance you want to create. The colors that adorn your
+                    walls, furniture, and decor play a crucial role in setting the mood of your living spaces. In this
+                    blog, we will guide you through the art of choosing the perfect color palette for your home,
+                    considering factors like room size, natural light, and your personal style. Whether you're aiming
+                    for a tranquil oasis, a vibrant atmosphere, or a harmonious blend of shades, we'll help you create a
+                    home that's uniquely yours.</p>
+                <button class="button bg-primary-subtle rounded-2 px-5">Read More <i
+                        class="bi bi-arrow-right"></i></button>
+            </div>
+        </div>
+        <div class="row align-items-center blog bg-body-tertiary p-4 mb-2 rounded-3 shadow-sm">
+            <div class="col-sm-12 col-md-4 col-lg-4 order-sm-last">
+                <img class="rounded-2" src="assets/blogs/blog2.png" alt="">
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-8 content">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <span class="date-author"><i class="bi bi-calendar-date"></i> November 05, 2023 | <i
+                                class="bi bi-person-fill"></i> Painturo</span>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 d-none d-md-block">
+                        <div class="d-flex align-items-center justify-content-end gap-1 social">
+                            <span class="text-muted">Share this to your friends!</span>
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="fs-2">The Magic of Monochromatic Design: Tips and Tricks</h1>
+                <p class="fs-5">Monochromatic design, with its subtle yet powerful allure, is a timeless approach that
+                    never goes out of style. In this blog post, we'll unravel the enchanting world of monochromatic
+                    design and reveal the tips and tricks to master this art. Explore the elegance and sophistication
+                    that comes with a single color palette, where every shade and tone adds depth and character to your
+                    space. From creating soothing interiors to making bold statements, discover the versatility and
+                    charm of monochromatic design and how it can transform your home into a visual masterpiece.</p>
+                <button class="button bg-secondary-subtle rounded-2 px-5">Read More <i
+                        class="bi bi-arrow-right"></i></button>
+
+            </div>
+        </div>
+        <div class="row align-items-center blog bg-body-tertiary p-4 mb-2 rounded-3 shadow-sm">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <img class="rounded-2" src="assets/blogs/blog3.png" alt="">
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-8 content">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <span class="date-author"><i class="bi bi-calendar-date"></i> November 04, 2023 | <i
+                                class="bi bi-person-fill"></i> Painturo</span>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 d-none d-md-block">
+                        <div class="d-flex align-items-center justify-content-end gap-1 social">
+                            <span class="text-muted">Share this to your friends!</span>
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="fs-2">The Art of Selecting Background Colors for Text Legibility</h1>
+                <p class="fs-5">In the world of design, the relationship between text and its background color is a
+                    critical element often overlooked. The choice of background color can significantly impact text
+                    legibility and the overall user experience. In this blog, we delve into the art of selecting the
+                    perfect background colors to ensure text remains readable and accessible. Discover techniques for
+                    creating eye-catching designs without sacrificing the clarity of your message. Join us as we explore
+                    the nuances of color and typography, striving for the perfect balance between aesthetics and
+                    functionality.</p>
+                <button class="button bg-danger-subtle rounded-2 px-5">Read More <i
+                        class="bi bi-arrow-right"></i></button>
+
+            </div>
+        </div>
+        <div class="row align-items-center blog bg-body-tertiary p-4 mb-2 rounded-3 shadow-sm">
+            <div class="col-sm-12 col-md-4 col-lg-4 order-sm-last">
+                <img class="rounded-2" src="assets/blogs/blog4.png" alt="">
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-8 content">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <span class="date-author"><i class="bi bi-calendar-date"></i> November 04, 2023 | <i
+                                class="bi bi-person-fill"></i> Painturo</span>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 d-none d-md-block">
+                        <div class="d-flex align-items-center justify-content-end gap-1 social">
+                            <span class="text-muted">Share this to your friends!</span>
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="fs-2">The Science of Color: How to Choose the Right
+                    Palette</h1>
+                <p class="fs-5">Color is more than just a visual sensation; it's a powerful tool that influences our
+                    emotions, perceptions, and decisions. In our blog, we dive into the fascinating world of color
+                    science and explore how to make informed choices when creating the perfect color palette for your
+                    design projects. From the psychological impact of different hues to the interplay of warm and cool
+                    tones, we'll uncover the secrets that designers use to evoke specific feelings and communicate
+                    messages through color. Discover how to select the right palette for your project and unlock the
+                    potential of color in your creative endeavors.</p>
+                <button class="button bg-danger-subtle rounded-2 px-5">Read More <i
+                        class="bi bi-arrow-right"></i></button>
+
+            </div>
+        </div>
+        <div class="row align-items-center blog bg-body-tertiary p-4 mb-2 rounded-3 shadow-sm">
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <img class="rounded-2" src="assets/blogs/blog5.png" alt="">
+            </div>
+            <div class="col-sm-12 col-md-8 col-lg-8 content">
+                <div class="row align-items-center">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <span class="date-author"><i class="bi bi-calendar-date"></i> November 03, 2023 | <i
+                                class="bi bi-person-fill"></i> Painturo</span>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 d-none d-md-block">
+                        <div class="d-flex align-items-center justify-content-end gap-1 social">
+                            <span class="text-muted">Share this to your friends!</span>
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="fs-2">From Dull to Dynamic: Color Tips for Graphic Design</h1>
+                <p class="fs-5">In the dynamic world of graphic design, color is your secret weapon for transforming
+                    dull visuals into captivating masterpieces. This blog dives into the fascinating realm of color
+                    theory, offering essential tips and tricks to breathe life into your designs. Discover how the right
+                    color choices can convey emotions, establish brand identity, and guide the viewer's eye. Whether
+                    you're a seasoned designer looking to refine your palette or a beginner seeking inspiration, these
+                    color tips will elevate your work from ordinary to extraordinary. Let's embark on a colorful journey
+                    to enhance your design skills and create striking visuals that leave a lasting impact.</p>
+                <button class="button bg-danger-subtle rounded-2 px-5">Read More <i
+                        class="bi bi-arrow-right"></i></button>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center py-3">
+        <a href="#" class="btn bg-primary-subtle rounded-2 px-5 py-3 border-0">Load More from Blogs <i
+                class="bi bi-arrow-right"></i></a>
+    </div>
+
+    <footer class="footer p-3 mt-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-5 col-lg-5 highlight">
+                <h1 class="fs-5 mt-2 text-uppercase">Latest Blog</h1>
+                <ul class="blog-snippets">
+                    <li>
+                        <div>
+                            <a href="blog.html" class="d-block">Choosing the Perfect Color Palette for Your Home</a>
+                            <small class="text-muted">Posted on November 06, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="blog.html" class="d-block">The Magic of Monochromatic Design: Tips and Tricks</a>
+                            <small class="text-muted">Posted on November 05, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="blog.html" class="d-block">The Art of Selecting Background Colors for Text
+                                Legibility</a>
+                            <small class="text-muted">Posted on November 04, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="blog.html" class="d-block">The Science of Color: How to Choose the Right
+                                Palette</a>
+                            <small class="text-muted">Posted on November 04, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="blog.html" class="d-block">From Dull to Dynamic: Color Tips for Graphic Design</a>
+                            <small class="text-muted">Posted on November 03, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <form class="highlight">
+                    <h1 class="fs-5 text-uppercase">Subscribe Now</h1>
+                    <p>Subscribe for a colorful updates! Let's add a splash of color to your inbox – subscribe now!</p>
+                    <label for="newsletter1" class="visually-hidden">Email address</label>
+                    <div class="row align-items-center">
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8 mb-2">
+                            <input id="newsletter1" type="text"
+                                class="form-control border border-primary bg-transparent">
+                        </div>
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-2">
+                            <button class="btn btn-primary bg-gradient w-100" type="button"><i class="bi bi-bell"></i>
+                                Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-3 col-lg-3 order-sm-first">
+                <div class="highlight">
+                    <h1 class="fs-4 m-0">Painturo</h1>
+                    <p>Where Colors Come to Life. Explore the World of Vibrant Hues
+                        and Creative Inspiration.</p>
+                    <h2 class="fs-5 m-0">Quick Links</h2>
+                    <ul class="footer-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="color-palettes.html">Color Palettes</a></li>
+                        <li><a href="color-picker.html">Color Picker</a></li>
+                        <li><a href="color-trends.html">Color Trends</a></li>
+                        <li><a href="color-ideas.html">Color Ideas</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1 class="fs-6 text-center">Follow us on Social Media!</h1>
+                <div class="d-flex align-items-center justify-content-center gap-3 mt-2 mb-4">
+                    <a href="#" class="text-decoration-none" style="color: #1877f2;"><i class="bi bi-facebook"></i>
+                        Facebook</a>
+                    <a href="#" class="text-decoration-none" style="color: #fcaf45;"><i class="bi bi-instagram"></i>
+                        Instagram</a>
+                    <a href="#" class="text-decoration-none" style="color: #1da1f2;"><i class="bi bi-twitter"></i>
+                        Twitter</a>
+                </div>
+                <small>Painturo &copy; 2023 - Designed by <a class="text-muted text-decoration-none"
+                        href="https://facebook.com/arjeusman">Arje Usman</a></small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

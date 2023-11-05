@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painturo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" href="assets/favicon.ico">
+    <script type="text/javascript" src="assets/painturo.js"></script>
+</head>
+
+<div class="modal modal-sm fade" tabindex="-1" id="success">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fs-6"><i class="bi bi-clipboard"></i> Copied to clipboard!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Great! The Color was copied to your clipboard.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body class="container">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-gradient rounded shadow-sm sticky-top">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"><img class="rounded-2" src="assets/brand.png" alt="Painturo"
+                    style="width: 40px; height: 40px;" /> Painturo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10"
+                aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-end" id="navbarsExample10">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-house"></i> Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false"><i class="bi bi-tools"></i> Tools</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="color-palettes.html"><i class="bi bi-palette"></i> Color
+                                    Palettes</a></li>
+                            <li><a class="dropdown-item" href="color-picker.html"><i class="bi bi-hand-index-thumb"></i>
+                                    Color
+                                    Picker</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" href="color-trends.html"><i
+                                class="bi bi-graph-up-arrow"></i> Color Trends</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" href="color-ideas.html"><i
+                                class="bi bi-info-circle"></i> Color Ideas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" href="blog.html"><i
+                                class="bi bi-file-earmark-richtext"></i>
+                            Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="class hero-blog p-5 text-center rounded-3 mt-2 mb-2 bg-body-tertiary">
+        <h1 class="text-body-emphasis">Color <span class="splash">Palettes<img src="assets/splash.png"
+                    alt="..." /></span></h1>
+        <p class="col-lg-8 mx-auto fs-5 text-muted">Explore our curated color palettes for endless inspiration. Discover
+            harmonious combinations, bold contrasts, and subtle nuances to elevate your design projects. Find the
+            perfect hues to make your vision come to life.</p>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row pallete">
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #0C356A;" data-color="#0C356A"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #0174BE;" data-color="#0174BE"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #FFC436;" data-color="#FFC436"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #FFF0CE;" data-color="#FFF0CE"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #0C356A;"
+                            data-color="#0C356A">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #0174BE;"
+                            data-color="#0174BE">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFC436;"
+                            data-color="#FFC436">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFF0CE;"
+                            data-color="#FFF0CE">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.2k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #FFF5E0;" data-color="#FFF5E0"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #FF6969;" data-color="#FF6969"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #B9B4C7;" data-color="#B9B4C7"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #FAF0E6;" data-color="#FAF0E6"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFF5E0;"
+                            data-color="#FFF5E0">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FF6969;"
+                            data-color="#FF6969">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #B9B4C7;"
+                            data-color="#B9B4C7">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FAF0E6;"
+                            data-color="#FAF0E6">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.1k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #FAF1E4;" data-color="#FAF1E4"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #CEDEBD;" data-color="#CEDEBD"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #9EB384;" data-color="#9EB384"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #435334;" data-color="#435334"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FAF1E4;"
+                            data-color="#FAF1E4">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #CEDEBD;"
+                            data-color="#CEDEBD">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #9EB384;"
+                            data-color="#9EB384">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #435334;"
+                            data-color="#435334">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.5k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #A8DF8E;" data-color="#A8DF8E"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #F3FDE8;" data-color="#F3FDE8"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #FFE5E5;" data-color="#FFE5E5"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #FFBFBF;" data-color="#FFBFBF"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #A8DF8E;"
+                            data-color="#A8DF8E">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #F3FDE8;"
+                            data-color="#F3FDE8">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFE5E5;"
+                            data-color="#FFE5E5">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFBFBF;"
+                            data-color="#FFBFBF">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.1k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #352F44;" data-color="#352F44"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #5C5470;" data-color="#5C5470"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #B9B4C7;" data-color="#B9B4C7"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #FAF0E6;" data-color="#FAF0E6"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #352F44;"
+                            data-color="#352F44">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #5C5470;"
+                            data-color="#FF6969">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #B9B4C7;"
+                            data-color="#B9B4C7">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FAF0E6;"
+                            data-color="#FAF0E6">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>2.1k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #FFF5E0;" data-color="#FFF5E0"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #FF6969;" data-color="#FF6969"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #BB2525;" data-color="#BB2525"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #141E46;" data-color="#141E46"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFF5E0;"
+                            data-color="#FFF5E0">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FF6969;"
+                            data-color="#FF6969">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #BB2525;"
+                            data-color="#BB2525">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #141E46;"
+                            data-color="#141E46">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #79155B;" data-color="#79155B"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #C23373;" data-color="#C23373"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #F6635C;" data-color="#F6635C"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #FFBA86;" data-color="#FFBA86"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #79155B;"
+                            data-color="#79155B">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #C23373;"
+                            data-color="#C23373">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #F6635C;"
+                            data-color="#F6635C">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFBA86;"
+                            data-color="#FFBA86">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.4k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #0C356A;" data-color="#0C356A"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #279EFF;" data-color="#279EFF"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #40F8FF;" data-color="#40F8FF"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #D5FFD0;" data-color="#D5FFD0"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #0C356A;"
+                            data-color="#0C356A">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #279EFF;"
+                            data-color="#279EFF">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #40F8FF;"
+                            data-color="#40F8FF">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #D5FFD0;"
+                            data-color="#D5FFD0">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #EBE76C;" data-color="#EBE76C"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #F0B86E;" data-color="#F0B86E"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #ED7B7B;" data-color="#ED7B7B"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #836096;" data-color="#836096"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #EBE76C;"
+                            data-color="#EBE76C">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #F0B86E;"
+                            data-color="#F0B86E">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #ED7B7B;"
+                            data-color="#ED7B7B">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #836096;"
+                            data-color="#836096">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.12k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #E19898;" data-color="#E19898"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #A2678A;" data-color="#A2678A"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #4D3C77;" data-color="#4D3C77"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #3F1D38;" data-color="#3F1D38"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #E19898;"
+                            data-color="#E19898">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #A2678A;"
+                            data-color="#A2678A">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #4D3C77;"
+                            data-color="#4D3C77">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #3F1D38;"
+                            data-color="#3F1D38">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.3k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #313866;" data-color="#313866"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #504099;" data-color="#504099"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #974EC3;" data-color="#974EC3"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #FE7BE5;" data-color="#FE7BE5"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #313866;"
+                            data-color="#313866">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #504099;"
+                            data-color="#504099">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #974EC3;"
+                            data-color="#974EC3">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FE7BE5;"
+                            data-color="#FE7BE5">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.5k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #614BC3;" data-color="#614BC3"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #33BBC5;" data-color="#33BBC5"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #85E6C5;" data-color="#85E6C5"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #C8FFE0;" data-color="#C8FFE0"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #614BC3;"
+                            data-color="#614BC3">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #33BBC5;"
+                            data-color="#33BBC5">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #85E6C5;"
+                            data-color="#85E6C5">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #C8FFE0;"
+                            data-color="#C8FFE0">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.1k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #FFF3DA;" data-color="#FFF3DA"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #DFCCFB;" data-color="#DFCCFB"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #D0BFFF;" data-color="#D0BFFF"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #BEADFA;" data-color="#BEADFA"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFF3DA;"
+                            data-color="#FFF3DA">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #DFCCFB;"
+                            data-color="#DFCCFB">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #D0BFFF;"
+                            data-color="#D0BFFF">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #BEADFA;"
+                            data-color="#BEADFA">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>2k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #96B6C5;" data-color="#96B6C5"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #ADC4CE;" data-color="#ADC4CE"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #EEE0C9;" data-color="#EEE0C9"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #F1F0E8;" data-color="#F1F0E8"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #96B6C5;"
+                            data-color="#96B6C5">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #ADC4CE;"
+                            data-color="#ADC4CE">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #EEE0C9;"
+                            data-color="#EEE0C9">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #F1F0E8;"
+                            data-color="#F1F0E8">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.6k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #900C3F;" data-color="#900C3F"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #C70039;" data-color="#C70039"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #F94C10;" data-color="#F94C10"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #F8DE22;" data-color="#F8DE22"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #900C3F;"
+                            data-color="#900C3F">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #C70039;"
+                            data-color="#C70039">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #F94C10;"
+                            data-color="#F94C10">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #F8DE22;"
+                            data-color="#F8DE22">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.1k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #F8F0E5;" data-color="#F8F0E5"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #EADBC8;" data-color="#EADBC8"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #DAC0A3;" data-color="#DAC0A3"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #102C57;" data-color="#102C57"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #F8F0E5;"
+                            data-color="#F8F0E5">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #EADBC8;"
+                            data-color="#EADBC8">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #DAC0A3;"
+                            data-color="#DAC0A3">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #102C57;"
+                            data-color="#102C57">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.1k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #252B48;" data-color="#252B48"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #445069;" data-color="#445069"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #5B9A8B;" data-color="#5B9A8B"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #F7E987;" data-color="#F7E987"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #252B48;"
+                            data-color="#252B48">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #445069;"
+                            data-color="#445069">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #5B9A8B;"
+                            data-color="#5B9A8B">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #F7E987;"
+                            data-color="#F7E987">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.1k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #FFDBC3;" data-color="#FFDBC3"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #9F91CC;" data-color="#9F91CC"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #5C4B99;" data-color="#5C4B99"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #3D246C;" data-color="#3D246C"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFDBC3;"
+                            data-color="#FFDBC3">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #9F91CC;"
+                            data-color="#9F91CC">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #5C4B99;"
+                            data-color="#5C4B99">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #3D246C;"
+                            data-color="#3D246C">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.1k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #C8E4B2;" data-color="#C8E4B2"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #9ED2BE;" data-color="#9ED2BE"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #7EAA92;" data-color="#7EAA92"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #FFD9B7;" data-color="#FFD9B7"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #C8E4B2;"
+                            data-color="#C8E4B2">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #9ED2BE;"
+                            data-color="#9ED2BE">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #7EAA92;"
+                            data-color="#7EAA92">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFD9B7;"
+                            data-color="#FFD9B7">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.1k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- color -->
+                <div class="color color-md h-100">
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                        style="background-color: #FFC6AC;" data-color="#FFC6AC"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                        style="background-color: #FFF6DC;" data-color="#FFF6DC"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                        style="background-color: #C4C1A4;" data-color="#C4C1A4"></div>
+                    <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                        style="background-color: #9E9FA5;" data-color="#9E9FA5"></div>
+                    <div class="color-set">
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFC6AC;"
+                            data-color="#FFC6AC">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFF6DC;"
+                            data-color="#FFF6DC">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #C4C1A4;"
+                            data-color="#C4C1A4">
+                        </div>
+                        <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #9E9FA5;"
+                            data-color="#9E9FA5">
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between footer">
+                        <div class="d-flex align-items-center gap-1 social">
+                            <i class="bi bi-facebook"></i>
+                            <i class="bi bi-instagram"></i>
+                            <i class="bi bi-twitter"></i>
+                        </div>
+                        <div class="d-flex flex-column text-center react">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <small>1.1k</small>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- color -->
+        </div>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center py-3">
+        <a href="#" class="btn bg-warning-subtle bg-gradient rounded-2 px-5 py-3 border-0">Load More Palettes <i
+                class="bi bi-arrow-right"></i></a>
+    </div>
+
+    <footer class="footer p-3 mt-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-5 col-lg-5 highlight">
+                <h1 class="fs-5 mt-2 text-uppercase">Latest Blog</h1>
+                <ul class="blog-snippets">
+                    <li>
+                        <div>
+                            <a href="blog.html" class="d-block">Choosing the Perfect Color Palette for Your Home</a>
+                            <small class="text-muted">Posted on November 06, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="blog.html" class="d-block">The Magic of Monochromatic Design: Tips and Tricks</a>
+                            <small class="text-muted">Posted on November 05, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="blog.html" class="d-block">The Art of Selecting Background Colors for Text
+                                Legibility</a>
+                            <small class="text-muted">Posted on November 04, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="blog.html" class="d-block">The Science of Color: How to Choose the Right
+                                Palette</a>
+                            <small class="text-muted">Posted on November 04, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="blog.html" class="d-block">From Dull to Dynamic: Color Tips for Graphic Design</a>
+                            <small class="text-muted">Posted on November 03, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <form class="highlight">
+                    <h1 class="fs-5 text-uppercase">Subscribe Now</h1>
+                    <p>Subscribe for a colorful updates! Let's add a splash of color to your inbox – subscribe now!</p>
+                    <label for="newsletter1" class="visually-hidden">Email address</label>
+                    <div class="row align-items-center">
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8 mb-2">
+                            <input id="newsletter1" type="text"
+                                class="form-control border border-primary bg-transparent">
+                        </div>
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-2">
+                            <button class="btn btn-primary bg-gradient w-100" type="button"><i class="bi bi-bell"></i>
+                                Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-3 col-lg-3 order-sm-first">
+                <div class="highlight">
+                    <h1 class="fs-4 m-0">Painturo</h1>
+                    <p>Where Colors Come to Life. Explore the World of Vibrant Hues
+                        and Creative Inspiration.</p>
+                    <h2 class="fs-5 m-0">Quick Links</h2>
+                    <ul class="footer-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="color-palettes.html">Color Palettes</a></li>
+                        <li><a href="color-picker.html">Color Picker</a></li>
+                        <li><a href="color-trends.html">Color Trends</a></li>
+                        <li><a href="color-ideas.html">Color Ideas</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1 class="fs-6 text-center">Follow us on Social Media!</h1>
+                <div class="d-flex align-items-center justify-content-center gap-3 mt-2 mb-4">
+                    <a href="#" class="text-decoration-none" style="color: #1877f2;"><i class="bi bi-facebook"></i>
+                        Facebook</a>
+                    <a href="#" class="text-decoration-none" style="color: #fcaf45;"><i class="bi bi-instagram"></i>
+                        Instagram</a>
+                    <a href="#" class="text-decoration-none" style="color: #1da1f2;"><i class="bi bi-twitter"></i>
+                        Twitter</a>
+                </div>
+                <small>Painturo &copy; 2023 - Designed by <a class="text-muted text-decoration-none"
+                        href="https://facebook.com/arjeusman">Arje Usman</a></small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
