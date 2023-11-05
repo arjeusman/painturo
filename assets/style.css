@@ -10,15 +10,45 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #EBF3E8;
+    animation-name: fadein;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    overflow: scroll;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Sometype Mono', monospace;
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    transition: text-decoration linear .3s;
+}
+
+a:hover {
+    color: #0c0b0b;
+    text-decoration: underline;
+    transition: all ease .3s;
+}
+
+/* modify */
+
+.btn-close:focus,
+.form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .navbar {
@@ -118,7 +148,7 @@ h6 {
 }
 
 .flash {
-    color: #fff;
+    color: #1b1b24;
     position: relative;
     padding: 0px 15px;
     background-image: url(../assets/flash/flash1.png);
@@ -128,12 +158,10 @@ h6 {
 }
 
 .flash2 {
-    color: #04364a;
     background-image: url(../assets/flash/flash2.png);
 }
 
 .flash3 {
-    color: #222444;
     background-image: url(../assets/flash/flash3.png);
 }
 
@@ -251,7 +279,7 @@ h6 {
     margin: 20px 0px;
     display: block;
     height: 5px;
-    background-color: #dfdbdb;
+    background-color: rgba(0, 0, 0, 0.05);
     border-radius: 5px;
 }
 
@@ -360,11 +388,45 @@ h6 {
     border-radius: 5px 0px 0px 0px;
 }
 
-.card.gradient .btn {
-    transition: transform linear .3s;
+/* blog */
+
+.blog-snippets {
+    padding: 0px;
 }
 
-.card.gradient .btn:hover {
-    transform: scale(1.1);
-    transition: all ease .3s;
+.blog-snippets li {
+    list-style: none;
+    padding: 0px 0px;
+    margin: 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.blog-snippets li:last-child {
+    border-bottom: none;
+}
+
+.blog-snippets li a {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+}
+
+.blog-snippets li small {
+    font-size: 11px;
+    margin: 0;
+    line-height: normal;
+}
+
+/* footer */
+.footer {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.footer a {
+    color: #45474B;
+}
+
+.footer a:hover {
+    color: #1F1717;
 }

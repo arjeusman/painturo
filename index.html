@@ -10,11 +10,32 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="icon" href="assets/favicon.ico">
+    <script>
+        function copy(data) {
+            navigator.clipboard.writeText(data);
+            new bootstrap.Modal(document.querySelector("#success")).show();
+        }
+    </script>
 </head>
 
-<body class="container bg-dark-secondary">
+<div class="modal modal-sm fade" tabindex="-1" id="success">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fs-6"><i class="bi bi-clipboard"></i> Copied to clipboard!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Great! The Color was copied to your clipboard.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body class="container">
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-gradient rounded shadow-sm sticky-top">
         <div class="container-fluid">
@@ -34,9 +55,9 @@
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"><i
                                 class="bi bi-tools"></i> Tools</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Color Palette</a></li>
-                            <li><a class="dropdown-item" href="#">Color Picker Tool</a></li>
-                            <li><a class="dropdown-item" href="#">Color Library</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-palette"></i> Color Palettes</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-hand-index-thumb"></i> Color
+                                    Picker</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -46,7 +67,7 @@
                         <a class="nav-link" aria-disabled="true"><i class="bi bi-info-circle"></i> Color Ideas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-disabled="true"><i class="bi bi-file-earmark-richtext"></i> Blogs</a>
+                        <a class="nav-link" aria-disabled="true"><i class="bi bi-file-earmark-richtext"></i> Blog</a>
                     </li>
                 </ul>
             </div>
@@ -70,49 +91,85 @@
             <div class="col-sm-12 col-md-7 col-lg-7">
                 <div class="row">
                     <div class="col">
-                        <h1 class="pt-5 pb-2 m-0 fs-2">Color Pallete you might like!</h1>
+                        <h1 class="pt-5 pb-2 m-0 fs-2">Color Palette you might like!</h1>
                     </div>
                 </div>
                 <div class="row pallete">
                     <div class="col-sm-12 col-md-6 col-lg-4 p-2">
                         <div class="color">
-                            <div class="color1" style="background-color: #0C356A;" data-color="#0C356A"></div>
-                            <div class="color2" style="background-color: #0174BE;" data-color="#0174BE"></div>
-                            <div class="color3" style="background-color: #FFC436;" data-color="#FFC436"></div>
-                            <div class="color4" style="background-color: #FFF0CE;" data-color="#FFF0CE"></div>
+                            <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                                style="background-color: #0C356A;" data-color="#0C356A"></div>
+                            <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                                style="background-color: #0174BE;" data-color="#0174BE"></div>
+                            <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                                style="background-color: #FFC436;" data-color="#FFC436"></div>
+                            <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                                style="background-color: #FFF0CE;" data-color="#FFF0CE"></div>
                             <div class="color-set">
-                                <div style="background-color: #0C356A;"></div>
-                                <div style="background-color: #0174BE;"></div>
-                                <div style="background-color: #FFC436;"></div>
-                                <div style="background-color: #FFF0CE;"></div>
+                                <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #0C356A;"
+                                    data-color="#0C356A">
+                                </div>
+                                <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #0174BE;"
+                                    data-color="#0174BE">
+                                </div>
+                                <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFC436;"
+                                    data-color="#FFC436">
+                                </div>
+                                <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FFF0CE;"
+                                    data-color="#FFF0CE">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-4 p-2">
                         <div class="color">
-                            <div class="color1" style="background-color: #706233;" data-color="#706233"></div>
-                            <div class="color2" style="background-color: #B0926A;" data-color="#B0926A"></div>
-                            <div class="color3" style="background-color: #E1C78F;" data-color="#E1C78F"></div>
-                            <div class="color4" style="background-color: #FAE7C9;" data-color="#FAE7C9"></div>
+                            <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                                style="background-color: #706233;" data-color="#706233"></div>
+                            <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                                style="background-color: #B0926A;" data-color="#B0926A"></div>
+                            <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                                style="background-color: #E1C78F;" data-color="#E1C78F"></div>
+                            <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                                style="background-color: #FAE7C9;" data-color="#FAE7C9"></div>
                             <div class="color-set">
-                                <div style="background-color: #706233;"></div>
-                                <div style="background-color: #B0926A;"></div>
-                                <div style="background-color: #E1C78F;"></div>
-                                <div style="background-color: #FAE7C9;"></div>
+                                <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #706233;"
+                                    data-color="#706233">
+                                </div>
+                                <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #B0926A;"
+                                    data-color="#B0926A">
+                                </div>
+                                <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #E1C78F;"
+                                    data-color="#E1C78F">
+                                </div>
+                                <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #FAE7C9;"
+                                    data-color="#FAE7C9">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6 col-lg-4 p-2">
                         <div class="color">
-                            <div class="color1" style="background-color: #ED7D31;" data-color="#ED7D31"></div>
-                            <div class="color2" style="background-color: #6C5F5B;" data-color="#6C5F5B"></div>
-                            <div class="color3" style="background-color: #4F4A45;" data-color="#4F4A45"></div>
-                            <div class="color4" style="background-color: #F6F1EE;" data-color="#F6F1EE"></div>
+                            <div onclick="copy(this.getAttribute('data-color'))" class="color1"
+                                style="background-color: #ED7D31;" data-color="#ED7D31"></div>
+                            <div onclick="copy(this.getAttribute('data-color'))" class="color2"
+                                style="background-color: #6C5F5B;" data-color="#6C5F5B"></div>
+                            <div onclick="copy(this.getAttribute('data-color'))" class="color3"
+                                style="background-color: #4F4A45;" data-color="#4F4A45"></div>
+                            <div onclick="copy(this.getAttribute('data-color'))" class="color4"
+                                style="background-color: #F6F1EE;" data-color="#F6F1EE"></div>
                             <div class="color-set">
-                                <div style="background-color: #ED7D31;"></div>
-                                <div style="background-color: #6C5F5B;"></div>
-                                <div style="background-color: #4F4A45;"></div>
-                                <div style="background-color: #F6F1EE;"></div>
+                                <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #ED7D31;"
+                                    data-color="#ED7D31">
+                                </div>
+                                <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #6C5F5B;"
+                                    data-color="#6C5F5B">
+                                </div>
+                                <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #4F4A45;"
+                                    data-color="#4F4A45">
+                                </div>
+                                <div onclick="copy(this.getAttribute('data-color'))" style="background-color: #F6F1EE;"
+                                    data-color="#F6F1EE">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -162,7 +219,7 @@
             </div>
         </div>
         <div class="divider"></div>
-        <h1 class="mt-2 mb-2 text-center">Featured <span class="flash">Colors</span></h1>
+        <h1 class="fs-3 mt-2 mb-2 text-center text-uppercase">Featured Colors</h1>
         <div class="row justify-content-center">
             <div class="col-sm-12 col-md-4 col-lg-3 p-2">
                 <div class="card color border-0 shadow-sm rounded-2">
@@ -269,7 +326,7 @@
         </div>
         <!-- end of row -->
         <div class="divider"></div>
-        <h1 class="mt-2 mb-2 text-center">Featured <span class="flash flash3">Gradients</span></h1>
+        <h1 class="fs-3 mt-2 mb-2 text-center text-uppercase">Featured Gradients</h1>
         <div class="row justify-content-center">
             <div class="col-sm-12 col-md-4 col-lg-3 p-2">
                 <div class="card gradient border-0 shadow-sm rounded-2">
@@ -418,6 +475,75 @@
         </div>
         <!-- end of row -->
     </div>
+
+    <footer class="footer p-3 mt-3 mb-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-5 col-lg-5">
+                <h1 class="fs-5 mt-2 text-uppercase">Latest Blog</h1>
+                <ul class="blog-snippets">
+                    <li>
+                        <a href="blog.html" class="d-block">Choosing the Perfect Color Palette for Your Home</a>
+                        <small class="text-muted">Posted on November 06, 2023 by Painturo</small>
+                    </li>
+                    <li>
+                        <a href="blog.html" class="d-block">The Magic of Monochromatic Design: Tips and Tricks</a>
+                        <small class="text-muted">Posted on November 05, 2023 by Painturo</small>
+                    </li>
+                    <li>
+                        <a href="blog.html" class="d-block">The Art of Selecting Background Colors for Text
+                            Legibility</a>
+                        <small class="text-muted">Posted on November 04, 2023 by Painturo</small>
+                    </li>
+                    <li>
+                        <a href="blog.html" class="d-block">The Science of Color: How to Choose the Right Palette</a>
+                        <small class="text-muted">Posted on November 04, 2023 by Painturo</small>
+                    </li>
+                    <li>
+                        <a href="blog.html" class="d-block">From Dull to Dynamic: Color Tips for Graphic Design</a>
+                        <small class="text-muted">Posted on November 03, 2023 by Painturo</small>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <form class="">
+                    <h1 class="fs-5 text-uppercase">Subscribe Now</h1>
+                    <p>Subscribe for a colorful updates! Let's add a splash of color to your inbox – subscribe now!</p>
+                    <label for="newsletter1" class="visually-hidden">Email address</label>
+                    <div class="d-flex flex-column gap-2">
+                        <input id="newsletter1" type="text" class="form-control border border-primary bg-transparent">
+                        <button class="btn btn-primary bg-gradient" type="button"><i class="bi bi-bell"></i> Subscribe
+                            Now</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-3 col-lg-3 order-sm-first">
+                <h1 class="fs-5 mt-2 text-uppercase">Navigation</h1>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Color Palettes</a></li>
+                    <li><a href="#">Color Picker</a></li>
+                    <li><a href="#">Color Trends</a></li>
+                    <li><a href="#">Color Ideas</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1 class="fs-6 text-center">Follow us on Social Media!</h1>
+                <div class="d-flex align-items-center justify-content-center gap-3 mt-2 mb-4">
+                    <a href="#" class="text-decoration-none" style="color: #1877f2;"><i class="bi bi-facebook"></i>
+                        Facebook</a>
+                    <a href="#" class="text-decoration-none" style="color: #fcaf45;"><i class="bi bi-instagram"></i>
+                        Instagram</a>
+                    <a href="#" class="text-decoration-none" style="color: #1da1f2;"><i class="bi bi-twitter"></i>
+                        Twitter</a>
+                </div>
+                <small>Painturo &copy; 2023 - Designed by <a class="text-muted text-decoration-none"
+                        href="https://facebook.com/arjeusman">Arje Usman</a></small>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
