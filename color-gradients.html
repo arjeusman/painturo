@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painturo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" href="assets/favicon.ico">
+    <script type="text/javascript" src="assets/painturo.js"></script>
+</head>
+
+<div class="modal modal-sm fade" tabindex="-1" id="success">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fs-6"><i class="bi bi-clipboard"></i> Copied to clipboard!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <h1 class="font1">That's Great!</h1>
+                <p>The Color was copied to your clipboard.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body class="container">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-gradient rounded shadow-sm sticky-top">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"><img class="rounded-2" src="assets/brand.png" alt="Painturo"
+                    style="width: 40px; height: 40px;" /> Painturo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10"
+                aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-end" id="navbarsExample10">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-house"></i>
+                            Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" href="color-palettes.html"><i
+                                class="bi bi-palette"></i> Palettes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-disabled="true" href="color-gradients.html"><i
+                                class="bi bi-slash-square"></i> Gradients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" href="color-picker-mixer.html"><i
+                                class="bi bi-paint-bucket"></i> Picker & Mixer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" href="color-trends.html"><i class="bi bi-palette2"></i>
+                            Trends</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" href="color-blog.html"><i
+                                class="bi bi-file-earmark-richtext"></i>
+                            Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-blog p-5 text-center rounded-3 mt-2 mb-2 bg-body-tertiary">
+        <h1 class="text-body-emphasis font1">Color <span class="splash">Gradients<img src="assets/splash.png"
+                    alt="..." /></span></h1>
+        <p class="col-lg-8 mx-auto fs-5 text-muted">Explore our curated color gradients for endless inspiration.
+            Discover
+            harmonious combinations, bold contrasts, and subtle nuances to elevate your design projects. Find the
+            perfect gradients to make your vision come to life.</p>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);"
+                        data-before="#1CB5E0" data-after="#000851"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Vital Ocean</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);"
+                        data-before="#00C9FF" data-after="#92FE9D"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Kale Salad</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);"
+                        data-before="#FC466B" data-after="#3F5EFB"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Disco Club</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #ff9a9e 0%, #fad0c4 100%);"
+                        data-before="#ff9a9e" data-after="#fad0c4"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Fashion</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #ff9a9e 0%, #fad0c4 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #ff8177 0%, #b12a5b 100%);"
+                        data-before="#ff8177" data-after="#b12a5b"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Young Passion</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #ff8177 0%, #b12a5b 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);"
+                        data-before="#FDBB2D" data-after="#3A1C71"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Fresco Crush</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #fcff9e 0%, #c67700 100%);"
+                        data-before="#fcff9e" data-after="#c67700"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Dusty Cactus</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #fcff9e 0%, #c67700 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #d53369 0%, #daae51 100%);"
+                        data-before="#d53369" data-after="#daae51"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Bloody Mimosa</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #d53369 0%, #daae51 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #0700b8 0%, #00ff88 100%);"
+                        data-before="#0700b8" data-after="#00ff88"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Ooey Gooey</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #0700b8 0%, #00ff88 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);"
+                        data-before="#4b6cb7" data-after="#182848"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Sea Salt</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);""
+                        data-before=" #9ebd13" data-after="#008552"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Par Four</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);"
+                        data-before="#efd5ff" data-after="#515ada"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Lovely Lily</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #007991 0%, #78ffd6 100%);"
+                        data-before="#007991" data-after="#78ffd6"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Chitty Bang</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #007991 0%, #78ffd6 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #F2994A 0%, #F2C94C 100%);"
+                        data-before="#F2994A" data-after="#F2C94C"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Sunkist</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #F2994A 0%, #F2C94C 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #EB5757 0%, #000000 100%);"
+                        data-before="#EB5757" data-after="#000000"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Coal</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #EB5757 0%, #000000 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #4AC29A 0%, #BDFFF3 100%);"
+                        data-before="#4AC29A" data-after="#BDFFF3"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Cinnamint</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #4AC29A 0%, #BDFFF3 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #D66D75 0%, #E29587 100%);"
+                        data-before="#D66D75" data-after="#E29587"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Sha la la</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #D66D75 0%, #E29587 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #20002c 0%, #cbb4d4 100%);"
+                        data-before="#20002c" data-after="#cbb4d4"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Purplepine</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #20002c 0%, #cbb4d4 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #34e89e 0%, #0f3443 100%);"
+                        data-before="#34e89e" data-after="#0f3443"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Pacific Dream</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #34e89e 0%, #0f3443 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+            <div class="col-sm-12 col-md-4 col-lg-3 p-2"><!-- gradient -->
+                <div class="card gradient md border-0 shadow-sm rounded-2">
+                    <div class="data" style="background: linear-gradient(90deg, #44A08D 0%, #093637 100%);"
+                        data-before="#44A08D" data-after="#093637"></div>
+                    <div class="card-body d-flex align-items-center justify-content-between p-2">
+                        <h1 class="fs-6 m-0 p-0">Orca</h1>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <i class="bi bi-heart text-danger" onclick="react(this)"></i>
+                            <button class="btn border-0">
+                                <i class="bi bi-copy" onclick="copy(this.getAttribute('data'))"
+                                    data="background: linear-gradient(90deg, #44A08D 0%, #093637 100%);"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- gradient -->
+        </div>
+        <!-- end of row -->
+
+        <div class="d-flex align-items-center justify-content-center py-3">
+            <a href="#" class="btn btn-info text-white bg-gradient shadow-sm rounded-2 px-5 py-3 border-0">Load More
+                Gradients <i class="bi bi-arrow-right"></i></a>
+        </div>
+
+    </div>
+
+    <footer class="footer p-2 px-sm-5 pt-sm-5 pt-sm-2 mt-3 mb-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-5 col-lg-5">
+                <h1 class="fs-4 m-0 font1">Latest Blog</h1>
+                <ul class="blog-snippets">
+                    <li>
+                        <div>
+                            <a href="color-blog.html" class="d-block">Choosing the Perfect Color Palette for Your
+                                Home</a>
+                            <small class="text-muted">Posted on November 06, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="color-blog.html" class="d-block">The Magic of Monochromatic Design: Tips and
+                                Tricks</a>
+                            <small class="text-muted">Posted on November 05, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="color-blog.html" class="d-block">The Art of Selecting Background Colors for Text
+                                Legibility</a>
+                            <small class="text-muted">Posted on November 04, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="color-blog.html" class="d-block">The Science of Color: How to Choose the Right
+                                Palette</a>
+                            <small class="text-muted">Posted on November 04, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="color-blog.html" class="d-block">From Dull to Dynamic: Color Tips for Graphic
+                                Design</a>
+                            <small class="text-muted">Posted on November 03, 2023 by Painturo</small>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-4">
+                <h1 class="fs-4 m-0 font1">Suggested Palettes</h1>
+                <div class="row mb-2">
+                    <div class="col-12">
+                        <div class="color-snippets">
+                            <h1 class="fs-6 m-0 col-5">Twilight Radiance</h1>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #363062;" data-color="#363062"></div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #4D4C7D;" data-color="#4D4C7D"></div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #F99417;" data-color="#F99417"></div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #F5F5F5;" data-color="#F5F5F5"></div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="color-snippets">
+                            <h1 class="fs-6 m-0 col-5">Blossom Whispers</h1>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #A8DF8E;" data-color="#A8DF8E">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #F3FDE8;" data-color="#F3FDE8">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #FFE5E5;" data-color="#FFE5E5">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #FFBFBF;" data-color="#FFBFBF">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="color-snippets">
+                            <h1 class="fs-6 m-0 col-5">Nature's Tranquility</h1>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #FAF1E4;" data-color="#FAF1E4">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #CEDEBD;" data-color="#CEDEBD">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #9EB384;" data-color="#9EB384">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #435334;" data-color="#435334">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="color-snippets">
+                            <h1 class="fs-6 m-0 col-5">Tranquil Harmony</h1>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #614BC3;" data-color="#614BC3">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #33BBC5;" data-color="#33BBC5">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #85E6C5;" data-color="#85E6C5">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #C8FFE0;" data-color="#C8FFE0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form>
+                    <h1 class="fs-4 m-0 font1">Subscribe Now</h1>
+                    <p>Subscribe for a colorful updates! Let's add a splash of color to your inbox – subscribe now!</p>
+                    <label for="newsletter1" class="visually-hidden">Email address</label>
+                    <div class="d-flex flex-column flex-sm-row gap-1 mb-3">
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                            <input id="newsletter1" type="text"
+                                class="form-control border border-primary bg-transparent">
+                        </div>
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                            <button class="btn btn-primary bg-gradient" type="button"><i class="bi bi-bell"></i>
+                                Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-3 col-lg-3 order-sm-first">
+                <div>
+                    <h1 class="fs-4 m-0 font1">Painturo</h1>
+                    <p>Where Colors Come to Life. Explore the World of Vibrant Hues
+                        and Creative Inspiration.</p>
+                    <h2 class="fs-5 m-0 font1">Quick Links</h2>
+                    <ul class="footer-nav">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="color-palettes.html">Palettes</a></li>
+                        <li><a href="color-gradients.html">Gradients</a></li>
+                        <li><a href="color-picker-mixer.html">Picker & Mixer</a></li>
+                        <li><a href="color-trends.html">Trends</a></li>
+                        <li><a href="color-blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="d-flex align-items-center justify-content-center justify-content-sm-end gap-3 social">
+                    <a href="#" class="text-decoration-none" style="color: #1877f2;"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-decoration-none" style="color: #fcaf45;"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-decoration-none" style="color: #1da1f2;"><i class="bi bi-twitter"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 text-center text-sm-start order-sm-first">
+                <small>Painturo &copy; 2023 | Designed by <a class="text-muted text-decoration-none"
+                        href="https://facebook.com/arjeusman">Luffytaro.</a></small>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

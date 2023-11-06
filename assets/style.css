@@ -1,4 +1,9 @@
+/* google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+/* bootstrap icons */
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
 * {
@@ -28,6 +33,16 @@ a {
 
 img {
     max-width: 100%;
+}
+
+/* custom fonts */
+
+.font1 {
+    font-family: 'DM Serif Display', serif;
+}
+
+.font2 {
+    font-family: 'Playfair Display', serif;
 }
 
 /* modify */
@@ -80,6 +95,7 @@ img {
 
 .hero h1 {
     font-size: 35px;
+    font-family: 'DM Serif Display', serif;
 }
 
 .splash {
@@ -151,7 +167,7 @@ img {
 /* headings */
 
 .heading {
-    padding: 10px 10px;
+    padding: 20px 10px;
     background-color: #fff;
     border-radius: 5px;
     position: relative;
@@ -160,6 +176,8 @@ img {
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
+    font-size: 25px;
+    font-family: 'Playfair Display', serif;
 }
 
 .heading::before,
@@ -356,7 +374,7 @@ img {
 }
 
 .card.color .data {
-    height: 150px;
+    height: 180px;
     cursor: pointer;
     position: relative;
 }
@@ -380,12 +398,18 @@ img {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+.card.color h1 {
+    font-family: 'DM Serif Display', serif;
+}
+
 .card.color p {
     display: -webkit-box;
     max-width: 100%;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    text-align: justify;
+    font-size: 14px;
 }
 
 .card.color .button {
@@ -415,6 +439,11 @@ img {
     transition: all ease .3s;
 }
 
+
+.card.color small {
+    font-size: 11px;
+}
+
 /* gradients */
 
 .card.card.gradient {
@@ -428,6 +457,12 @@ img {
 
 .card.gradient .data {
     height: 100px;
+    cursor: pointer;
+    position: relative;
+}
+
+.card.gradient.md .data {
+    height: 150px;
     cursor: pointer;
     position: relative;
 }
@@ -462,6 +497,10 @@ img {
     right: 0px;
     content: attr(data-after);
     border-radius: 5px 0px 0px 0px;
+}
+
+.card.gradient small {
+    font-size: 11px;
 }
 
 /* color picker */
@@ -636,6 +675,10 @@ img {
     transition: all ease .3s;
 }
 
+.blog .content h1 {
+    font-family: 'DM Serif Display', serif;
+}
+
 .blog .content p {
         text-align: justify;
 }
@@ -668,10 +711,6 @@ img {
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.blog-snippets li::before {
-    content: '📖';
-}
-
 .blog-snippets li:last-child {
     border-bottom: none;
 }
@@ -681,12 +720,8 @@ img {
     padding: 0px 0px;
     line-height: normal;
     display: block;
-}
-
-.blog-snippets li small {
-    display: block;
-    padding: 2px 0px;
-    margin: 0px;
+    font-size: 16px;
+    font-family: 'DM Serif Display', serif;
 }
 
 .blog-snippets li a:hover {
@@ -694,16 +729,46 @@ img {
 }
 
 .blog-snippets li small {
-    font-size: 11px;
-    margin: 0;
-    line-height: normal;
+    display: block;
+    padding: 2px 0px;
+    margin: 0px;
+    font-size: 13px;
+}
+
+/* color snippets */
+
+.color-snippets {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.color-snippets > h1 {
+    font-family: ;
+}
+
+.color-snippets>.color {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    transition: transform linear .3s;
+}
+
+.color-snippets>.color:hover {
+    transform: scale(1.15);
+    transition: all ease .3s;
 }
 
 /* footer */
 
 .footer {
     border-radius: 10px;
-    background-color: rgba(10, 10, 10, 0.03);
+    background-color: #fff;
 }
 
 .footer a {
@@ -714,14 +779,8 @@ img {
     color: #1F1717;
 }
 
-.highlight h1 {
-    position: relative;
-    padding: 5px 0px;
-}
-
-.highlight h1:before {
-    content: "🌈";
-    display: inline-block;
+.footer .social a {
+    font-size: 20px;
 }
 
 .footer-nav {

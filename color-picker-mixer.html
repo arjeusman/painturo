@@ -24,7 +24,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center">
-                <p>Great! The Color was copied to your clipboard.</p>
+                <h1 class="font1">That's Great!</h1>
+                <p>The Color was copied to your clipboard.</p>
             </div>
         </div>
     </div>
@@ -44,29 +45,27 @@
             <div class="collapse navbar-collapse justify-content-md-end" id="navbarsExample10">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-house"></i> Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                            aria-expanded="false"><i class="bi bi-tools"></i> Tools</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="color-palettes.html"><i class="bi bi-palette"></i> Color
-                                    Palettes</a></li>
-                            <li><a class="dropdown-item" href="color-picker.html"><i class="bi bi-hand-index-thumb"></i>
-                                    Color
-                                    Picker</a></li>
-                        </ul>
+                        <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-house"></i>
+                            Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-disabled="true" href="color-trends.html"><i
-                                class="bi bi-graph-up-arrow"></i> Color Trends</a>
+                        <a class="nav-link" aria-disabled="true" href="color-palettes.html"><i
+                                class="bi bi-palette"></i> Palettes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-disabled="true" href="color-ideas.html"><i
-                                class="bi bi-info-circle"></i> Color Ideas</a>
+                        <a class="nav-link" aria-disabled="true" href="color-gradients.html"><i
+                                class="bi bi-slash-square"></i> Gradients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-disabled="true" href="blog.html"><i
+                        <a class="nav-link active" aria-disabled="true" href="color-picker-mixer.html"><i
+                                class="bi bi-paint-bucket"></i> Picker & Mixer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" href="color-trends.html"><i class="bi bi-palette2"></i>
+                            Trends</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true" href="color-blog.html"><i
                                 class="bi bi-file-earmark-richtext"></i>
                             Blog</a>
                     </li>
@@ -76,7 +75,7 @@
     </nav>
 
     <div class="hero-blog p-5 text-center rounded-3 mt-2 mb-2 bg-body-tertiary">
-        <h1 class="text-body-emphasis">Color Picker & <span class="splash">Mixer<img src="assets/splash.png"
+        <h1 class="text-body-emphasis font1">Color Picker & <span class="splash">Mixer<img src="assets/splash.png"
                     alt="..." /></span>
         </h1>
         <p class="col-lg-8 mx-auto fs-5 text-muted">Explore a world of endless color possibilities with our
@@ -87,9 +86,6 @@
 
     <div class="row bg-body-tertiary rounded-3 p-sm-5 color-picker">
         <div class="col-sm-12 col-md-7 col-lg-7 text-start">
-            <div class="highlight">
-                <h1 class="fs-2 m-0 text-uppercase">Color Mixer</h1>
-            </div>
             <div class="d-flex align-items-center justify-content-between flex-row gap-1 mt-2 mb-2 rounded-3 range">
                 <label for="red">R</label>
                 <input oninput="updateColor()" class="flex-fill" type="range" min="0" max="255" value="255" id="red">
@@ -175,144 +171,160 @@
         </div>
     </div>
 
-    <script>
-        function updateColor() {
-            let red = parseInt(document.getElementById('red').value)
-            let green = parseInt(document.getElementById('green').value)
-            let blue = parseInt(document.getElementById('blue').value)
-            let alpha = parseFloat(document.getElementById('alpha').value)
-            let output = document.getElementById('color')
-            let rgb = 'rgb(' + red + ', ' + green + ', ' + blue + ')'
-            let rgba = 'rgba(' + red + ', ' + green + ', ' + blue + ', ' + alpha.toFixed(1) + ')'
-            output.style.backgroundColor = rgba
-            document.getElementById('redLabel').innerHTML = red
-            document.getElementById('greenLabel').innerHTML = green
-            document.getElementById('blueLabel').innerHTML = blue
-            document.getElementById('alphaLabel').innerHTML = alpha.toFixed(1);
-            document.getElementById('rgbCode').innerHTML = rgb
-            document.getElementById('rgbaCode').innerHTML = rgba
-            document.getElementById('hexCode').innerHTML = RGBtoHex(red, green, blue)
-            //update picker color
-            document.getElementById('picker').value = RGBtoHex(red, green, blue)
-        }
-        const colorToHex = (color) => {
-            const hexadecimal = color.toString(16);
-            return hexadecimal.length == 1 ? "0" + hexadecimal : hexadecimal;
-        }
-
-        const RGBtoHex = (red, green, blue) => {
-            return "#" + colorToHex(red) + colorToHex(green) + colorToHex(blue);
-        }
-
-        // color picker
-        function hexTorgb(hex) {
-            return ['0x' + hex[1] + hex[2] | 0, '0x' + hex[3] + hex[4] | 0, '0x' + hex[5] + hex[6] | 0];
-        }
-        function updateFromPicker(hex) {
-            let color = hexTorgb(hex)
-            let rgb = 'rgb(' + color[0] + ', ' + color[1] + ', ' + color[2] + ')'
-            let rgba = 'rgb(' + color[0] + ', ' + color[1] + ', ' + color[2] + ', 1.0)'
-            document.getElementById('color').style.backgroundColor = rgba
-            //update rgba range
-            document.getElementById('red').value = color[0]
-            document.getElementById('green').value = color[1]
-            document.getElementById('blue').value = color[2]
-            document.getElementById('alpha').value = 1.0
-
-            document.getElementById('rgbaCode').innerHTML = rgba
-            document.getElementById('rgbCode').innerHTML = rgb
-            document.getElementById('hexCode').innerHTML = hex
-            // console.log(color)
-        }
-
-    </script>
-
-    <footer class="footer p-3 mt-3">
+    <footer class="footer p-2 px-sm-5 pt-sm-5 pt-sm-2 mt-3 mb-3">
         <div class="row">
-            <div class="col-sm-12 col-md-5 col-lg-5 highlight">
-                <h1 class="fs-5 mt-2 text-uppercase">Latest Blog</h1>
+            <div class="col-sm-12 col-md-5 col-lg-5">
+                <h1 class="fs-4 m-0 font1">Latest Blog</h1>
                 <ul class="blog-snippets">
                     <li>
                         <div>
-                            <a href="blog.html" class="d-block">Choosing the Perfect Color Palette for Your Home</a>
+                            <a href="color-blog.html" class="d-block">Choosing the Perfect Color Palette for Your
+                                Home</a>
                             <small class="text-muted">Posted on November 06, 2023 by Painturo</small>
                         </div>
                     </li>
                     <li>
                         <div>
-                            <a href="blog.html" class="d-block">The Magic of Monochromatic Design: Tips and Tricks</a>
+                            <a href="color-blog.html" class="d-block">The Magic of Monochromatic Design: Tips and
+                                Tricks</a>
                             <small class="text-muted">Posted on November 05, 2023 by Painturo</small>
                         </div>
                     </li>
                     <li>
                         <div>
-                            <a href="blog.html" class="d-block">The Art of Selecting Background Colors for Text
+                            <a href="color-blog.html" class="d-block">The Art of Selecting Background Colors for Text
                                 Legibility</a>
                             <small class="text-muted">Posted on November 04, 2023 by Painturo</small>
                         </div>
                     </li>
                     <li>
                         <div>
-                            <a href="blog.html" class="d-block">The Science of Color: How to Choose the Right
+                            <a href="color-blog.html" class="d-block">The Science of Color: How to Choose the Right
                                 Palette</a>
                             <small class="text-muted">Posted on November 04, 2023 by Painturo</small>
                         </div>
                     </li>
                     <li>
                         <div>
-                            <a href="blog.html" class="d-block">From Dull to Dynamic: Color Tips for Graphic Design</a>
+                            <a href="color-blog.html" class="d-block">From Dull to Dynamic: Color Tips for Graphic
+                                Design</a>
                             <small class="text-muted">Posted on November 03, 2023 by Painturo</small>
                         </div>
                     </li>
                 </ul>
             </div>
             <div class="col-sm-12 col-md-4 col-lg-4">
-                <form class="highlight">
-                    <h1 class="fs-5 text-uppercase">Subscribe Now</h1>
+                <h1 class="fs-4 m-0 font1">Suggested Palettes</h1>
+                <div class="row mb-2">
+                    <div class="col-12">
+                        <div class="color-snippets">
+                            <h1 class="fs-6 m-0 col-5">Twilight Radiance</h1>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #363062;" data-color="#363062"></div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #4D4C7D;" data-color="#4D4C7D"></div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #F99417;" data-color="#F99417"></div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #F5F5F5;" data-color="#F5F5F5"></div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="color-snippets">
+                            <h1 class="fs-6 m-0 col-5">Blossom Whispers</h1>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #A8DF8E;" data-color="#A8DF8E">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #F3FDE8;" data-color="#F3FDE8">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #FFE5E5;" data-color="#FFE5E5">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #FFBFBF;" data-color="#FFBFBF">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="color-snippets">
+                            <h1 class="fs-6 m-0 col-5">Nature's Tranquility</h1>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #FAF1E4;" data-color="#FAF1E4">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #CEDEBD;" data-color="#CEDEBD">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #9EB384;" data-color="#9EB384">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #435334;" data-color="#435334">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="color-snippets">
+                            <h1 class="fs-6 m-0 col-5">Tranquil Harmony</h1>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #614BC3;" data-color="#614BC3">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #33BBC5;" data-color="#33BBC5">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #85E6C5;" data-color="#85E6C5">
+                            </div>
+                            <div class="color" onclick="copy(this.getAttribute('data-color'))"
+                                style="background-color: #C8FFE0;" data-color="#C8FFE0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form>
+                    <h1 class="fs-4 m-0 font1">Subscribe Now</h1>
                     <p>Subscribe for a colorful updates! Let's add a splash of color to your inbox – subscribe now!</p>
                     <label for="newsletter1" class="visually-hidden">Email address</label>
-                    <div class="row align-items-center">
-                        <div class="col-12 col-sm-8 col-md-8 col-lg-8 mb-2">
+                    <div class="d-flex flex-column flex-sm-row gap-1 mb-3">
+                        <div class="col-12 col-sm-8 col-md-8 col-lg-8">
                             <input id="newsletter1" type="text"
                                 class="form-control border border-primary bg-transparent">
                         </div>
-                        <div class="col-12 col-sm-4 col-md-4 col-lg-4 mb-2">
-                            <button class="btn btn-primary bg-gradient w-100" type="button"><i class="bi bi-bell"></i>
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                            <button class="btn btn-primary bg-gradient" type="button"><i class="bi bi-bell"></i>
                                 Subscribe</button>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="col-sm-12 col-md-3 col-lg-3 order-sm-first">
-                <div class="highlight">
-                    <h1 class="fs-4 m-0">Painturo</h1>
+                <div>
+                    <h1 class="fs-4 m-0 font1">Painturo</h1>
                     <p>Where Colors Come to Life. Explore the World of Vibrant Hues
                         and Creative Inspiration.</p>
-                    <h2 class="fs-5 m-0">Quick Links</h2>
+                    <h2 class="fs-5 m-0 font1">Quick Links</h2>
                     <ul class="footer-nav">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="color-palettes.html">Color Palettes</a></li>
-                        <li><a href="color-picker.html">Color Picker</a></li>
-                        <li><a href="color-trends.html">Color Trends</a></li>
-                        <li><a href="color-ideas.html">Color Ideas</a></li>
-                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="color-palettes.html">Palettes</a></li>
+                        <li><a href="color-gradients.html">Gradients</a></li>
+                        <li><a href="color-picker-mixer.html">Picker & Mixer</a></li>
+                        <li><a href="color-trends.html">Trends</a></li>
+                        <li><a href="color-blog.html">Blog</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <h1 class="fs-6 text-center">Follow us on Social Media!</h1>
-                <div class="d-flex align-items-center justify-content-center gap-3 mt-2 mb-4">
-                    <a href="#" class="text-decoration-none" style="color: #1877f2;"><i class="bi bi-facebook"></i>
-                        Facebook</a>
-                    <a href="#" class="text-decoration-none" style="color: #fcaf45;"><i class="bi bi-instagram"></i>
-                        Instagram</a>
-                    <a href="#" class="text-decoration-none" style="color: #1da1f2;"><i class="bi bi-twitter"></i>
-                        Twitter</a>
+        <div class="row justify-content-between">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="d-flex align-items-center justify-content-center justify-content-sm-end gap-3 social">
+                    <a href="#" class="text-decoration-none" style="color: #1877f2;"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-decoration-none" style="color: #fcaf45;"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-decoration-none" style="color: #1da1f2;"><i class="bi bi-twitter"></i></a>
                 </div>
-                <small>Painturo &copy; 2023 - Designed by <a class="text-muted text-decoration-none"
-                        href="https://facebook.com/arjeusman">Arje Usman</a></small>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 text-center text-sm-start order-sm-first">
+                <small>Painturo &copy; 2023 | Designed by <a class="text-muted text-decoration-none"
+                        href="https://facebook.com/arjeusman">Luffytaro.</a></small>
             </div>
         </div>
     </footer>
